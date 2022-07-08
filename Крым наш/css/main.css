@@ -1,0 +1,118 @@
+.container {
+        width: 1200px;
+        padding: 0 15px;
+        margin: auto;
+    }
+
+    header {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff;
+        padding: 20px 0;
+    }
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header nav {
+        display: flex;
+        /*flex-direction: column;*/
+    }
+
+    header nav a {
+        margin-left: 15px;
+    }
+
+    .burger {
+        display: none;
+
+        position: relative;
+        cursor: pointer;
+        width: 28px;
+        height: 16px;
+    }
+
+    .burger span {
+        height: 2px;
+        display: block;
+        background: black;
+        position: absolute;
+        right: 0;
+
+        transition: .3s;
+    }
+
+    .burger span:nth-child(1) {
+        width: 28px;
+        top: 0;
+    }
+
+    .burger span:nth-child(2) {
+        width: 17px;
+        top: 7px;
+    }
+
+    .burger span:nth-child(3) {
+        width: 11px;
+        background: green;
+        top: 14px;
+    }
+
+    .burger.active span:nth-child(1) {
+        top: 7px;
+        background: green;
+        transform: rotate(-45deg);
+    }
+
+    .burger.active span:nth-child(2) {
+        top: 3px;
+        right: 9px;
+        background: green;
+        transform: rotate(45deg);
+    }
+
+    .burger.active span:nth-child(3) {
+        top: 12.8px;
+        transform: rotate(45deg);
+        right: 2.2px;
+
+    }
+
+    @media screen and (max-width: 500px) {
+        .container {
+            width: 270px;
+        }
+
+        .burger {
+            display: block;
+            grid-row: 1/2;
+            grid-column: 2/3;
+        }
+
+        header {
+            border-radius: 30px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+
+            transition: .5s;
+
+            box-shadow: 0 100vh 0 100vh rgba(0, 0, 0, 0);
+        }
+
+        header.active {
+            box-shadow: 0 100vh 0 100vh rgba(0, 0, 0, 0.4);
+        }
+
+        header .container {
+            display: grid;
+            grid-template-columns: 1fr 30px;
+        }
+
+        header nav {
+            flex-direction: column;
+        }
+    }
